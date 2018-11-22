@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Reminders</ion-title>
+    <ion-buttons end><button ion-button icon-only (click)="addReminder()"><ion-icon name="create"></ion-icon></button></ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h5>Here are your recent reminders:</h5>
+  <ion-list>
+      <ion-item-sliding *ngFor="let reminder of recentReminders" (click)="viewReminders(reminder)">
+          <ion-item> {{reminder.reminder.title}}</ion-item>     
+          <ion-item-options>
+            <button ion-button icon-only (click)="deleteReminder(reminder)" danger><ion-icon name="trash"></ion-icon></button>
+          </ion-item-options>
+       </ion-item-sliding>
+  </ion-list>
+  <h5>Here are all your reminders:</h5>
+  <ion-list>
+      <ion-item-sliding *ngFor="let reminder of allReminders" (click)="viewReminders(reminder)">
+          <ion-item> {{reminder.reminder.title}}</ion-item>     
+          <ion-item-options>
+            <button ion-button icon-only (click)="deleteReminder(reminder)" danger><ion-icon name="trash"></ion-icon></button>
+          </ion-item-options>
+       </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>To-Do</ion-title>
+    <ion-buttons end><button ion-button icon-only (click)="addToDo()"><ion-icon name="create"></ion-icon></button></ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h5>Here are your recent To-Do Lists:</h5>
+  <ion-list>
+      <ion-item-sliding *ngFor="let todo of recentToDos" (click)="viewToDo(todo)">
+          <ion-item> {{todo.title}}</ion-item>     
+          <ion-item-options>
+            <button ion-button icon-only (click)="deleteToDo(todo)" danger><ion-icon name="trash"></ion-icon></button>
+          </ion-item-options>
+       </ion-item-sliding>
+  </ion-list>
+  
+  <h5>Here are all your To-Do Lists:</h5>
+  <ion-list>
+      <ion-item-sliding *ngFor="let todo of allToDos" (click)="viewToDo(todo)">
+          <ion-item> {{todo.title}}</ion-item>     
+          <ion-item-options>
+            <button ion-button icon-only (click)="deleteToDo(todo)" danger><ion-icon name="trash"></ion-icon></button>
+          </ion-item-options>
+       </ion-item-sliding>
+  </ion-list>
+</ion-content>

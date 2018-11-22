@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h5>Here are your recent Notes:</h5>
+  <ion-list>
+    <ion-item *ngFor="let note of recentNotes">{{note.title}}</ion-item>
+  </ion-list>
+  <h5>Here are your recent To-Dos:</h5>
+  <ion-list>
+    <ion-item *ngFor="let todo of recentToDos">{{todo.title}}</ion-item>
+  </ion-list>
+  <h5>Here are your recent Reminders:</h5>
+  <ion-list>
+    <ion-item *ngFor="let reminder of recentReminders">{{reminder.reminder.title}}</ion-item>
+  </ion-list>
+</ion-content>

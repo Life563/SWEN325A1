@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><ion-input type="text"[(ngModel)]="title">{{title}}</ion-input></ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card><ion-card-content><ion-textarea  type="text"[(ngModel)]="description"></ion-textarea ></ion-card-content></ion-card>
+  <div padding>
+    <button ion-button full (click)="saveNote()">Save Changes</button>
+  </div>
+</ion-content>

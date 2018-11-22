@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add To-Do's</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input type="text"[(ngModel)]="title"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label floating>Item</ion-label>
+        <ion-input type="text"[(ngModel)]="item"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+        <button ion-button (click)="pushToDo()">Add</button>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-list>
+          <ion-item-sliding *ngFor="let item of items; let i = index;">
+              <ion-item>- {{items[i]}}</ion-item>
+              <ion-item-options>
+                <button ion-button icon-only (click)="deleteItem(item)" danger><ion-icon name="trash"></ion-icon></button>
+              </ion-item-options>
+          </ion-item-sliding>   
+      </ion-list>
+    </ion-item>
+
+  </ion-list>
+  
+  <div>
+    <button ion-button full (click)="saveToDo()">Save</button>
+  </div>
+
+</ion-content>

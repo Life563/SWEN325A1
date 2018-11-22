@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><ion-input type="text"[(ngModel)]="title">{{title}}</ion-input></ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>Date: {{data[0]}}/{{data[1]}}/{{data[2]}}</ion-card-content>
+    <ion-card-content>Time: {{data[4]}}:{{data[3]}}</ion-card-content>
+    <ion-card-content> <ion-textarea type="text"[(ngModel)]="description">{{description}}</ion-textarea ></ion-card-content>
+  </ion-card>
+
+  <ion-item>
+      <ion-label floating>Reminder Time:</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="chosenDate" (ionChange)="setTime($event)"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Day:</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="chosenDate" (ionChange)="setDay($event)"></ion-datetime>
+    </ion-item>
+
+    <div padding>
+        <button ion-button full (click)="saveReminder()">Save</button>
+      </div>
+</ion-content>
